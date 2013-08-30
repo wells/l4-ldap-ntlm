@@ -40,8 +40,8 @@ Add the following config into your `app/config/auth.php` file
  * LDAP Configuration for wells/l4-ldap-ntlm
  */
 'ldap' => array(
-  // Domain controller (host), Domain to search (domain), 
-  // OU containing users (basedn), OU containing groups (groupdn)
+	// Domain controller (host), Domain to search (domain), 
+	// OU containing users (basedn), OU containing groups (groupdn)
 	'host' => 'dc',
 	'domain' => 'domain.com',
 	'basedn' => 'OU=Users,DC=domain,DC=com',
