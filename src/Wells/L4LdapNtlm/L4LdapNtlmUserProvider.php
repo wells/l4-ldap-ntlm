@@ -138,7 +138,7 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 		{
 			$cn = 'CN='.$group.','.$this->config['groupdn'];
 			if (isset($entry['dn']) 
-				&& $this->check_group($entry['dn'], $cn))
+				&& $this->checkGroup($entry['dn'], $cn))
 			{
 				$entry['type'] = 1;
 				$entry['group'] = $group;
@@ -150,7 +150,7 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 		{
 			$cn = 'CN='.$group.','.$this->config['groupdn'];
 			if (isset($entry['dn']) 
-				&& $this->check_group($entry['dn'], $cn))
+				&& $this->checkGroup($entry['dn'], $cn))
 			{
 				$entry['type'] = 0;
 				$entry['group'] = $group;
@@ -179,7 +179,7 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 	 * Checks group membership of the user, searching
 	 * in the specified group and its children (recursively)
 	 */
-	protected function check_group($userdn, $groupdn) 
+	protected function checkGroup($userdn, $groupdn) 
 	{	
 		$members = $this->getMembers($userdn);
 
@@ -190,7 +190,7 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 		{
 			if ($groupdn == $members[$i])
 				return TRUE;
-			elseif ($this->check_group($members[$i], $groupdn)) 
+			elseif ($this->checkGroup($members[$i], $groupdn)) 
 				return TRUE; 
 		}
 
