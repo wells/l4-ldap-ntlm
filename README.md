@@ -12,7 +12,7 @@ To install this in your application add the following to your `composer.json` fi
 
 ```json
 require {
-	"wells/l4-ldap-ntlm": "1.0.x",
+	"wells/l4-ldap-ntlm": "dev-master"
 }
 ```
 
