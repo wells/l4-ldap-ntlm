@@ -3,7 +3,7 @@ l4-ldap-ntlm
 
 An LDAP/Active Directory/NTLM authentication driver for Laravel 4.
 
-This package will enable you to have basic authentication with a config-based ACL for admin and viewers of any auth based portion of a Laravel 4 based site. In addition, the package is capable of tying into Apache based NTLM authentication. You will need to install and configure libapache2-mod-auth-ntlm-winbind for Apache2 (Visit http://goo.gl/cvCMla for a tutorial). If it is not installed, the package should still operate.
+This package will enable you to have basic authentication with a config-based ACL for admin and viewers of any auth based portion of a Laravel 4 based site. In addition, the package is capable of tying into Apache based NTLM authentication. You will need to install and configure `libapache2-mod-auth-ntlm-winbind` for Apache2 (Visit http://goo.gl/cvCMla for a tutorial). If it is not installed, the package should still operate.
 
 Installation
 ============
