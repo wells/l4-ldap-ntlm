@@ -72,12 +72,7 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 		if ($entries['count'] == 0 || $entries['count'] > 1)
 			return null;
 
-		$attributes = $this->clean($entries[0]);
-
-		if(count($attributes) > 0)
-			$this->model = new GenericUser( $attributes );
-
-		return $this->model;
+		return $this->clean($entries[0]);
 	}
 
 	/**
@@ -96,12 +91,7 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 		if ($entries['count'] == 0 || $entries['count'] > 1)
 			return NULL;
 
-		$attributes = $this->clean($entries[0]);
-
-		if(count($attributes) > 0)
-			$this->model = new GenericUser( $attributes );
-
-		return $this->model;
+		return $this->clean($entries[0]);
 	}
 
 	/**
@@ -182,9 +172,11 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 
 		// If View Groups exist and User is not in group
 		if($entry['type'] === NULL)
-			return array();
+			return NULL;
 
-		return $entry;
+		$this->model = new GenericUser( $entry );
+
+		return $this->model;
 	}
 
 	/**
