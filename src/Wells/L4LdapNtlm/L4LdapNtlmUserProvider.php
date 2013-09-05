@@ -13,6 +13,12 @@ use Illuminate\Auth\GenericUser;
 class L4LdapNtlmUserProvider implements UserProviderInterface
 {
 	/**
+	 * The Eloquent user model
+	 * @var GenericUser
+	 */
+	protected $model;
+	
+	/**
 	* Create a new LDAP user provider.
 	*
 	* @param  array  $config
@@ -66,7 +72,10 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 		if ($entries['count'] == 0 || $entries['count'] > 1)
 			return null;
 
-		$this->model = new GenericUser( $this->clean($entries[0]) );
+		$attributes = $this->clean($entries[0]);
+
+		if(count($attributes) > 0)
+			$this->model = new GenericUser( $attributes );
 
 		return $this->model;
 	}
@@ -87,7 +96,10 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 		if ($entries['count'] == 0 || $entries['count'] > 1)
 			return NULL;
 
-		$this->model = new GenericUser( $this->clean($entries[0]) );
+		$attributes = $this->clean($entries[0]);
+
+		if(count($attributes) > 0)
+			$this->model = new GenericUser( $attributes );
 
 		return $this->model;
 	}
