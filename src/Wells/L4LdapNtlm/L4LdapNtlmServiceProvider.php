@@ -33,7 +33,7 @@ class L4LdapNtlmServiceProvider extends ServiceProvider {
 				new L4LdapNtlmUserProvider(
 					$app['config']->get('auth.ldap')
 				),
-				$app->make('session')
+				$app->make('session.store')
 			);
 		});
 	}
