@@ -31,7 +31,7 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 		// Connect to the domain controller
 		if ( ! $this->conn = ldap_connect("ldap://{$this->config['host']}"))
 		{
-			throw new Exception("Could not connect to LDAP host {$this->config['host']}: ".ldap_error($this->conn));
+			throw new \Exception("Could not connect to LDAP host {$this->config['host']}: ".ldap_error($this->conn));
 		}
 
 		// Required for Windows AD
@@ -41,7 +41,7 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 		// Enable search of LDAP
 		if ( ! @ldap_bind($this->conn, "{$this->config['dn_user']}@{$this->config['domain']}", $this->config['dn_pass']))
 		{
-			throw new Exception('Could not bind to AD: '."{$this->config['dn_user']}@{$this->config['domain']}: ".ldap_error($this->conn));
+			throw new \Exception('Could not bind to AD: '."{$this->config['dn_user']}@{$this->config['domain']}: ".ldap_error($this->conn));
 		}
 	}
 
