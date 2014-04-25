@@ -213,5 +213,14 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 
 		return !empty($entries[0]['memberof']) ? $entries[0]['memberof'] : NULL;
 	}
+	
+	// Implementing temp fix suggested at https://github.com/wells/l4-ldap-ntlm/issues/9
+	public function retrieveByToken($identifier, $token){
+		throw new \Predis\NotSupportedException();
+	}
+
+	public function updateRememberToken(UserInterface $user, $token) {
+		throw new \Predis\NotSupportedException();
+	}
 
 }
