@@ -40,6 +40,6 @@ class L4LdapNtlmGuard extends Guard
 			'NTLM' => TRUE
 		);
 
-		return $this->attempt($credentials, FALSE);
+		return $this->attempt($credentials, TRUE);
 	}
 }

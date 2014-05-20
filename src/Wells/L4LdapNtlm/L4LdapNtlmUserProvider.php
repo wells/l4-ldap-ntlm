@@ -77,9 +77,7 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 	 */
 	public function updateRememberToken(UserInterface $user, $token)
 	{
-		// AD has no token field
-		// Will implement a user table in a db for next iteration
-		//$user->setRememberToken($token);
+		$user->setRememberToken($token);
 	}
 
 	/**
@@ -150,6 +148,7 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 	public function clean(array $entry)
 	{
 		$entry['id'] = $entry['dn'];
+		$entry['remember_token'] = $entry['dn'];
 		$entry['username'] = $entry['samaccountname'][0];
 
 		// Default user type (ACL: 0 = admin, 1 = user)
