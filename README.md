@@ -42,7 +42,7 @@ Add the following config into your `app/config/auth.php` file
 'ldap' => array(
 	// Domain controller (host), Domain to search (domain), 
 	// OU containing users (basedn), OU containing groups (groupdn)
-	'host' => 'dc',
+	'host' => 'ldap://dc', // You can also use ldaps://
 	'domain' => 'domain.com',
 	'basedn' => 'OU=Users,DC=domain,DC=com',
 	'groupdn' => 'OU=Groups,DC=domain,DC=com',

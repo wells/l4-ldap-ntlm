@@ -29,7 +29,7 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 		$this->config = $config;
 
 		// Connect to the domain controller
-		if ( ! $this->conn = ldap_connect("ldap://{$this->config['host']}"))
+		if ( ! $this->conn = ldap_connect($this->config['host']))
 		{
 			throw new \Exception("Could not connect to LDAP host {$this->config['host']}: ".ldap_error($this->conn));
 		}
