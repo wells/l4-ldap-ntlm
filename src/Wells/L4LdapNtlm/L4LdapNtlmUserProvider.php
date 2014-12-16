@@ -37,6 +37,9 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 		// Required for Windows AD
 		ldap_set_option($this->conn, LDAP_OPT_PROTOCOL_VERSION, 3);
 		ldap_set_option($this->conn, LDAP_OPT_REFERRALS, 0);
+		if( isset($this->config['timeout']) ){
+			ldap_set_option($this->conn, LDAP_OPT_NETWORK_TIMEOUT, intval($this->config['timeout']) );
+		}
 
 		// Enable search of LDAP
 		if ( ! @ldap_bind($this->conn, "{$this->config['dn_user']}@{$this->config['domain']}", $this->config['dn_pass']))

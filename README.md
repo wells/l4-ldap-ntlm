@@ -44,6 +44,7 @@ Add the following config into your `app/config/auth.php` file
 	// OU containing users (basedn), OU containing groups (groupdn)
 	'host' => 'ldap://dc', // You can also use ldaps://
 	'domain' => 'domain.com',
+	'timeout' => 3, // Timeout in seconds (It is optional, if you don´t select it is used the default value)
 	'basedn' => 'OU=Users,DC=domain,DC=com',
 	'groupdn' => 'OU=Groups,DC=domain,DC=com',
 
