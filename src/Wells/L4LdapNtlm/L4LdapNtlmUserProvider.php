@@ -202,7 +202,11 @@ class L4LdapNtlmUserProvider implements UserProviderInterface
 		if($entry['type'] === NULL)
 			return NULL;
 
-		$this->model = new GenericUser( $entry );
+		if( isset($this->config['model']) ){
+			$this->model = new $this->config['model']( $entry );
+		}
+		else
+			$this->model = new GenericUser( $entry );
 
 		return $this->model;
 	}

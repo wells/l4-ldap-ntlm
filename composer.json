@@ -1,9 +1,9 @@
 {
-    "name": "wells/l4-ldap-ntlm",
+    "name": "rkgarcia/l4-ldap-ntlm",
     "type": "library",
     "description": "An LDAP/Active Directory/NTLM authentication driver for Laravel 4.",
     "keywords": ["laravel", "L4", "LDAP", "Authentication", "Laravel 4", "auth"],
-    "homepage": "https://github.com/wells/l4-ldap-ntlm",
+    "homepage": "https://github.com/rkgarcia/l4-ldap-ntlm",
     "license": "MIT",
     "authors": [
         {
